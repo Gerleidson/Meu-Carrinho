@@ -12,10 +12,15 @@ body {
   background-color: #f9f9f9;
   color: #333;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 h1 {
-  font-size: 28px; /* Aumente um pouco o tamanho da fonte para manter o destaque */
+  font-size: 28px;
   margin-bottom: 20px;
 }
 
@@ -27,6 +32,7 @@ h2 {
 
 p {
   margin-bottom: 20px;
+  text-align: center;
 }
 
 form {
@@ -34,11 +40,13 @@ form {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
 }
 
 label {
   display: block;
-  margin-bottom: 10px; /* Aumente um pouco o espaçamento entre rótulos */
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
@@ -47,7 +55,7 @@ input[type="number"],
 input[type="submit"] {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px; /* Aumente um pouco o espaçamento inferior dos campos de entrada */
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -67,6 +75,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  max-width: 600px;
 }
 
 table th,
@@ -85,6 +94,7 @@ table th {
 #totalProdutos {
   font-weight: bold;
   margin-top: 20px;
+  text-align: center;
 }
 
 /* Botão Limpar Tabela */
@@ -107,18 +117,15 @@ table th {
   height: auto;
 }
 
-
-/* Rodapé */
 footer {
   background-color: #333;
   color: #fff;
   text-align: center;
   padding: 10px 0;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   font-size: 14px;
-  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
 }
 
 /* Adicione uma margem superior para o rodapé em dispositivos maiores para evitar que fique muito próximo ao conteúdo */
