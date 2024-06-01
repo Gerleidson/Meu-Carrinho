@@ -33,9 +33,10 @@
   <label for="preco">Preço (por unidade):</label><input id="preco" name="preco" placeholder="Insira o preço"
                                                         required step="0.01" type="number">
   <input type="submit" value="Adicionar Produto"><!-- Seu formulário HTML aqui -->
+    <p id="valorTotal">Total: R$ 0.00</p>
 </form>
 
-<p id="valorTotal">Total: R$ 0.00</p>
+
 
 <h2>Produtos Adicionados:</h2>
 <table id="tabelaProdutos">
@@ -166,7 +167,7 @@
       totalProdutos += parseFloat(tabela.rows[i].cells[3].textContent);
     }
     // Exibir o total dos produtos
-    document.getElementById('totalProdutos').textContent = "Total de Produtos: R$ " + totalProdutos.toFixed(2);
+    document.getElementById('totalProdutos').textContent = "Total da Compra: R$ " + totalProdutos.toFixed(2);
   }
 </script>
 
