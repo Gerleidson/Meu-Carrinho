@@ -102,13 +102,21 @@
     background-color: #c82333;
   }
 
-  /* Rodapé */
+/* Rodapé */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px; /* Tamanho da fonte reduzido para dispositivos menores */
+}
+
+/* Adicione uma margem superior para o rodapé em dispositivos maiores para evitar que fique muito próximo ao conteúdo */
+@media screen and (min-width: 768px) {
   footer {
-    background-color: #fff;
-    color: #000000;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    margin-top: 20px;
   }
+}
