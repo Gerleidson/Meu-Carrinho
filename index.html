@@ -6,32 +6,32 @@
     <title>Compra Mensal</title>
     <link href="css/style.css" rel="stylesheet">
     <meta content="" name="description">
-  
+
     <meta content="Compra Mensal" property="og:title">
     <meta content="website" property="og:type">
     <meta content="" property="og:url">
     <meta content="" property="og:image">
     <meta content="" property="og:image:alt">
-  
+
     <link href="/favicon.ico" rel="icon" sizes="any">
     <link href="/icon.svg" rel="icon" type="image/svg+xml">
     <link href="icon.png" rel="apple-touch-icon">
-  
+
     <link href="site.webmanifest" rel="manifest">
     <meta content="#fafafa" name="theme-color">
 </head>
 <body>
-    <h1>COMPRA MENSAL</h1>
+<h1>COMPRA MENSAL</h1>
 <p>Olá, seja bem-vindo! Use este formulário para criar uma lista de compras mensal.</p>
 
 <form action="conexao.php" id="formCompra" method="post">
-  <input id="produtoID" name="produtoID" type="hidden"><!-- Campo oculto para armazenar o ID do produto selecionado -->
-  <label for="nome-do-produto">Nome do Produto:</label><input id="nome-do-produto" name="nome-do-produto" placeholder="Insira o nome do produto"
-                                                              required type="text">
-  <label for="quantidade">Quantidade:</label><input id="quantidade" name="quantidade" placeholder="Insira a quantidade"
-                                                    required step="0.01" type="number">
-  <label for="preco">Preço (por unidade):</label><input id="preco" name="preco" placeholder="Insira o preço"
-                                                        required step="0.01" type="number">
+    <input id="produtoID" name="produtoID" type="hidden"><!-- Campo oculto para armazenar o ID do produto selecionado -->
+    <label for="nome-do-produto">Nome do Produto:</label><input id="nome-do-produto" name="nome-do-produto" placeholder="Insira o nome do produto"
+                                                                required type="text">
+    <label for="quantidade">Quantidade:</label><input id="quantidade" name="quantidade" placeholder="Insira a quantidade"
+                                                      required step="0.01" type="number">
+    <label for="preco">Preço (por unidade):</label><input id="preco" name="preco" placeholder="Insira o preço"
+                                                          required step="0.01" type="number">
 
     <p id="valorTotal">Total: R$ 0.00</p>
 
@@ -40,139 +40,139 @@
 
 <h2>Produtos Adicionados:</h2>
 <table id="tabelaProdutos">
-  <thead>
-  <tr>
-    <th>Produto</th>
-    <th>Quantidade</th>
-    <th>Preço</th>
-    <th>Total</th>
-    <th>Ações</th><!-- Adiciona uma coluna para ações -->
-  </tr>
-  </thead>
-  <tbody>
-  <!-- Linhas de produtos serão adicionadas aqui dinamicamente -->
-  </tbody>
+    <thead>
+    <tr>
+        <th>Produto</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Total</th>
+        <th>Ações</th><!-- Adiciona uma coluna para ações -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Linhas de produtos serão adicionadas aqui dinamicamente -->
+    </tbody>
 </table>
 
 <p id="totalProdutos">Total da Compra: R$ 0.00</p>
 
 <button id="limparTabela">Limpar Tabela</button> <!-- Botão para limpar a tabela -->
 
-<script src="js/app.js"></script>
-
-<script>
-  // Função para calcular o valor total
-  function calcularTotal() {
-      let quantidade = parseFloat(document.getElementById('quantidade').value);
-      let preco = parseFloat(document.getElementById('preco').value);
-      let total = quantidade * preco;
-
-      // Exibir o valor total
-    document.getElementById('valorTotal').textContent = "Total: R$ " + total.toFixed(2);
-  }
-
-  // Associar a função ao evento 'input' dos campos de quantidade e preço
-  document.getElementById('quantidade').addEventListener('input', calcularTotal);
-  document.getElementById('preco').addEventListener('input', calcularTotal);
-
-  // Adicionar produto à tabela quando o formulário é enviado
-  document.getElementById('formCompra').addEventListener('submit', function (event) {
-    let tabela;
-      event.preventDefault(); // Impede o envio do formulário
-      let nomeProduto = document.getElementById('nome-do-produto').value;
-      let quantidade = parseFloat(document.getElementById('quantidade').value);
-      let preco = parseFloat(document.getElementById('preco').value);
-      let total = quantidade * preco;
-
-      let produtoID = document.getElementById('produtoID').value; // Obtém o ID do produto selecionado
-
-    if (produtoID) { // Se o ID do produto existe, significa que estamos editando um produto
-      // Atualiza os dados do produto na tabela
-      tabela = document.getElementById('tabelaProdutos');
-        let linha = tabela.rows[produtoID]; // Obtém a linha correspondente ao ID do produto
-      linha.cells[0].textContent = nomeProduto;
-      linha.cells[1].textContent = quantidade;
-      linha.cells[2].textContent = preco.toFixed(2);
-      linha.cells[3].textContent = total.toFixed(2);
-      // Limpa o campo oculto
-      document.getElementById('produtoID').value = '';
-    } else { // Caso contrário, estamos adicionando um novo produto
-      // Criar nova linha na tabela
-        tabela = document.getElementById('tabelaProdutos').getElementsByTagName('tbody')[0];
-        let novaLinha = tabela.insertRow(tabela.rows.length);
-        let celulaNome = novaLinha.insertCell(0);
-        let celulaQuantidade = novaLinha.insertCell(1);
-        let celulaPreco = novaLinha.insertCell(2);
-        let celulaTotal = novaLinha.insertCell(3);
-        let celulaAcoes = novaLinha.insertCell(4); // Adiciona uma célula para ações
-
-      // Preencher as células com os dados do produto
-      celulaNome.textContent = nomeProduto;
-      celulaQuantidade.textContent = quantidade;
-      celulaPreco.textContent = preco.toFixed(2);
-      celulaTotal.textContent = total.toFixed(2);
-
-      // Adiciona botões de editar e deletar à célula de ações
-        let btnEditar = document.createElement('button');
-        btnEditar.textContent = 'Editar';
-      btnEditar.addEventListener('click', function () {
-        // Preenche os campos do formulário com os dados do produto selecionado
-        document.getElementById('nome-do-produto').value = nomeProduto;
-        document.getElementById('quantidade').value = quantidade;
-        document.getElementById('preco').value = preco;
-        // Armazena o ID do produto selecionado no campo oculto
-        document.getElementById('produtoID').value = novaLinha.rowIndex;
-        // Atualiza o valor total com base nos dados do produto selecionado
-        calcularTotal();
-      });
-
-        let btnDeletar = document.createElement('button');
-        btnDeletar.textContent = 'Deletar';
-      btnDeletar.addEventListener('click', function () {
-        // Remove a linha associada ao botão de deletar
-          let linhaDeletar = this.parentNode.parentNode;
-          linhaDeletar.parentNode.removeChild(linhaDeletar);
-        // Recalcula o total dos produtos
-        calcularTotalProdutos();
-      });
-
-      celulaAcoes.appendChild(btnEditar);
-      celulaAcoes.appendChild(btnDeletar);
-    }
-
-    // Calcular o total dos produtos na tabela
-    calcularTotalProdutos();
-
-    // Limpar os campos do formulário após adicionar/editar um produto
-    document.getElementById('nome-do-produto').value = '';
-    document.getElementById('quantidade').value = '';
-    document.getElementById('preco').value = '';
-    // Atualiza o valor total após limpar os campos
-    calcularTotal();
-  });
-
-  // Função para limpar a tabela
-  document.getElementById('limparTabela').addEventListener('click', function () {
-      let tabela = document.getElementById('tabelaProdutos').getElementsByTagName('tbody')[0];
-      tabela.innerHTML = ''; // Remove todas as linhas da tabela
-    // Atualiza o total de produtos
-    document.getElementById('totalProdutos').textContent = "Total de Produtos: R$ 0.00";
-  });
-
-  // Função para calcular o total dos produtos na tabela
-  function calcularTotalProdutos() {
-      let tabela = document.getElementById('tabelaProdutos').getElementsByTagName('tbody')[0];
-      let totalProdutos = 0;
-      for (let i = 0; i < tabela.rows.length; i++) {
-      totalProdutos += parseFloat(tabela.rows[i].cells[3].textContent);
-    }
-    // Exibir o total dos produtos
-    document.getElementById('totalProdutos').textContent = "Total da Compra: R$ " + totalProdutos.toFixed(2);
-  }
-</script>
-
-</body>
 <footer>
     <p>&copy; 2024 — Desenvolvido por Gerleidson A. Bomfim </p>
 </footer>
+
+<script src="js/app.js"></script>
+
+<script>
+    // Função para calcular o valor total
+    function calcularTotal() {
+        let quantidade = parseFloat(document.getElementById('quantidade').value);
+        let preco = parseFloat(document.getElementById('preco').value);
+        let total = quantidade * preco;
+
+        // Exibir o valor total
+        document.getElementById('valorTotal').textContent = "Total: R$ " + total.toFixed(2);
+    }
+
+    // Associar a função ao evento 'input' dos campos de quantidade e preço
+    document.getElementById('quantidade').addEventListener('input', calcularTotal);
+    document.getElementById('preco').addEventListener('input', calcularTotal);
+
+    // Adicionar produto à tabela quando o formulário é enviado
+    document.getElementById('formCompra').addEventListener('submit', function (event) {
+        let tabela;
+        event.preventDefault(); // Impede o envio do formulário
+        let nomeProduto = document.getElementById('nome-do-produto').value;
+        let quantidade = parseFloat(document.getElementById('quantidade').value);
+        let preco = parseFloat(document.getElementById('preco').value);
+        let total = quantidade * preco;
+
+        let produtoID = document.getElementById('produtoID').value; // Obtém o ID do produto selecionado
+
+        if (produtoID) { // Se o ID do produto existe, significa que estamos editando um produto
+            // Atualiza os dados do produto na tabela
+            tabela = document.getElementById('tabelaProdutos');
+            let linha = tabela.rows[produtoID]; // Obtém a linha correspondente ao ID do produto
+            linha.cells[0].textContent = nomeProduto;
+            linha.cells[1].textContent = quantidade;
+            linha.cells[2].textContent = preco.toFixed(2);
+            linha.cells[3].textContent = total.toFixed(2);
+            // Limpa o campo oculto
+            document.getElementById('produtoID').value = '';
+        } else { // Caso contrário, estamos adicionando um novo produto
+            // Criar nova linha na tabela
+            tabela = document.getElementById('tabelaProdutos').getElementsByTagName('tbody')[0];
+            let novaLinha = tabela.insertRow(tabela.rows.length);
+            let celulaNome = novaLinha.insertCell(0);
+            let celulaQuantidade = novaLinha.insertCell(1);
+            let celulaPreco = novaLinha.insertCell(2);
+            let celulaTotal = novaLinha.insertCell(3);
+            let celulaAcoes = novaLinha.insertCell(4); // Adiciona uma célula para ações
+
+            // Preencher as células com os dados do produto
+            celulaNome.textContent = nomeProduto;
+            celulaQuantidade.textContent = quantidade;
+            celulaPreco.textContent = preco.toFixed(2);
+            celulaTotal.textContent = total.toFixed(2);
+
+            // Adiciona botões de editar e deletar à célula de ações
+            let btnEditar = document.createElement('button');
+            btnEditar.textContent = 'Editar';
+            btnEditar.addEventListener('click', function () {
+                // Preenche os campos do formulário com os dados do produto selecionado
+                document.getElementById('nome-do-produto').value = nomeProduto;
+                document.getElementById('quantidade').value = quantidade;
+                document.getElementById('preco').value = preco;
+                // Armazena o ID do produto selecionado no campo oculto
+                document.getElementById('produtoID').value = novaLinha.rowIndex;
+                // Atualiza o valor total com base nos dados do produto selecionado
+                calcularTotal();
+            });
+
+            let btnDeletar = document.createElement('button');
+            btnDeletar.textContent = 'Deletar';
+            btnDeletar.addEventListener('click', function () {
+                // Remove a linha associada ao botão de deletar
+                let linhaDeletar = this.parentNode.parentNode;
+                linhaDeletar.parentNode.removeChild(linhaDeletar);
+                // Recalcula o total dos produtos
+                calcularTotalProdutos();
+            });
+
+            celulaAcoes.appendChild(btnEditar);
+            celulaAcoes.appendChild(btnDeletar);
+        }
+
+        // Calcular o total dos produtos na tabela
+        calcularTotalProdutos();
+
+        // Limpar os campos do formulário após adicionar/editar um produto
+        document.getElementById('nome-do-produto').value = '';
+        document.getElementById('quantidade').value = '';
+        document.getElementById('preco').value = '';
+        // Atualiza o valor total após limpar os campos
+        calcularTotal();
+    });
+
+    // Função para limpar a tabela
+    document.getElementById('limparTabela').addEventListener('click', function () {
+        let tabela = document.getElementById('tabelaProdutos').getElementsByTagName('tbody')[0];
+        tabela.innerHTML = ''; // Remove todas as linhas da tabela
+        // Atualiza o total de produtos
+        document.getElementById('totalProdutos').textContent = "Total de Produtos: R$ 0.00";
+    });
+
+    // Função para calcular o total dos produtos na tabela
+    function calcularTotalProdutos() {
+        let tabela = document.getElementById('tabelaProdutos').getElementsByTagName('tbody')[0];
+        let totalProdutos = 0;
+        for (let i = 0; i < tabela.rows.length; i++) {
+            totalProdutos += parseFloat(tabela.rows[i].cells[3].textContent);
+        }
+        // Exibir o total dos produtos
+        document.getElementById('totalProdutos').textContent = "Total da Compra: R$ " + totalProdutos.toFixed(2);
+    }
+</script>
+</body>
 </html>
