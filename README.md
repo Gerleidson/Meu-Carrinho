@@ -1,5 +1,6 @@
 # Compra Mensal
 
+
 Este é um formulário HTML para compras mensais... adicionar produtos, quantidade e preço por unidade. Além disso, editar e excluir produtos da lista.
 
 ## Como usar
@@ -11,6 +12,9 @@ Este é um formulário HTML para compras mensais... adicionar produtos, quantida
 3. **Deletar Produto:** Se desejar remover um produto da lista, clique em "Deletar".
 
 4. **Limpar Tabela:** Para limpar todos os produtos da tabela, clique em "Limpar Tabela".
+
+
+![compra mensal](https://github.com/Gerleidson/Compras/assets/88213553/5485e659-88c1-4e09-8ab0-b51ff82939ff)
 
 ## Desenvolvedor
 
