@@ -112,6 +112,7 @@ footer {
   bottom: 0;
   width: 100%;
   font-size: 14px; /* Tamanho da fonte reduzido para dispositivos menores */
+  margin: 0 auto; /* Centralizar horizontalmente */
 }
 
 /* Adicione uma margem superior para o rodapé em dispositivos maiores para evitar que fique muito próximo ao conteúdo */
@@ -120,4 +121,5 @@ footer {
     margin-top: 20px;
   }
 }
+
 
