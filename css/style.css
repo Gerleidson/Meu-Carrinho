@@ -102,6 +102,12 @@ table th {
   background-color: #c82333;
 }
 
+.imagem-responsiva {
+  max-width: 100%;
+  height: auto;
+}
+
+
 /* Rodapé */
 footer {
   background-color: #333;
