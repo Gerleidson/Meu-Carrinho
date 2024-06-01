@@ -1,106 +1,106 @@
 /* Reset CSS */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* Estilos gerais */
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
-    padding: 20px;
-  }
+/* Estilos gerais */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
 
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
+h1 {
+  font-size: 28px; /* Aumente um pouco o tamanho da fonte para manter o destaque */
+  margin-bottom: 20px;
+}
 
-  h2 {
-    font-size: 24px;
-    margin-top: 40px;
-    margin-bottom: 10px;
-  }
+h2 {
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
 
-  p {
-    margin-bottom: 20px;
-  }
+p {
+  margin-bottom: 20px;
+}
 
-  form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
+label {
+  display: block;
+  margin-bottom: 10px; /* Aumente um pouco o espaçamento entre rótulos */
+  font-weight: bold;
+}
 
-  input[type="text"],
-  input[type="number"],
-  input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+input[type="text"],
+input[type="number"],
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px; /* Aumente um pouco o espaçamento inferior dos campos de entrada */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
-  input[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  input[type="submit"]:hover {
-    background-color: #0056b3;
-  }
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
 
-  table th,
-  table td {
-    padding: 8px;
-    border: 1px solid #ddd;
-  }
+table th,
+table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
 
-  table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    text-align: left;
-  }
+table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: left;
+}
 
-  #valorTotal,
-  #totalProdutos {
-    font-weight: bold;
-    margin-top: 20px;
-  }
+#valorTotal,
+#totalProdutos {
+  font-weight: bold;
+  margin-top: 20px;
+}
 
-  /* Botão Limpar Tabela */
-  #limparTabela {
-    background-color: #dc3545;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+/* Botão Limpar Tabela */
+#limparTabela {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  #limparTabela:hover {
-    background-color: #c82333;
-  }
+#limparTabela:hover {
+  background-color: #c82333;
+}
 
 /* Rodapé */
 footer {
@@ -111,8 +111,8 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  font-size: 14px; /* Tamanho da fonte reduzido para dispositivos menores */
-  margin: 0 auto; /* Centralizar horizontalmente */
+  font-size: 14px;
+  margin: 0 auto;
 }
 
 /* Adicione uma margem superior para o rodapé em dispositivos maiores para evitar que fique muito próximo ao conteúdo */
@@ -121,5 +121,3 @@ footer {
     margin-top: 20px;
   }
 }
-
-
