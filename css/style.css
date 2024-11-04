@@ -118,8 +118,8 @@ table th {
 }
 
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: #c4c3c3;
+  color: #000000;
   text-align: center;
   padding: 10px 0;
   width: 100%;
@@ -128,7 +128,6 @@ footer {
   bottom: 0;
 }
 
-/* Adicione uma margem superior para o rodapé em dispositivos maiores para evitar que fique muito próximo ao conteúdo */
 @media screen and (min-width: 768px) {
   footer {
     margin-top: 20px;
