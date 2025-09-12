@@ -126,3 +126,45 @@
     color: #fff;
     text-decoration: underline;
   }
+
+
+
+
+  .input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 12px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  background-color: white;
+}
+
+.input-container label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: white;
+  padding: 0 5px;
+  color: #888;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 8px;
+  font-size: 12px;
+  color: #007BFF;
+}
+
+.input-container input:focus {
+  border-color: #007BFF;
+}
